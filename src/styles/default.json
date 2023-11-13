@@ -1,0 +1,23 @@
+{
+  "colors": {
+    "default": {
+      "body": "hsl(0, 0%, 98%)",
+      "container": "#fff",
+      "text": "hsl(0, 0%, 46%)",
+      "title": "hsl(0, 0%, 20%)",
+      "titleDark": "hsl(0, 0%, 0%)"
+    }
+  },
+  "global": {
+    "html": {
+      "background": "default.container",
+      "color": "default.text",
+      "fontFamily": "'Poppins', sans-serif",
+      "scrollBehavior": "smooth"
+    },
+    "body": {
+      "margin": "auto",
+      "maxWidth": "container.lg"
+    }
+  }
+}
