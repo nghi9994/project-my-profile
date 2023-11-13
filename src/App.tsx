@@ -1,4 +1,11 @@
-import { AboutPage, AppContainer, HomePage, Navbar } from "@/components";
+import {
+  AboutPage,
+  AppContainer,
+  ContactPage,
+  HomePage,
+  Navbar,
+  SkillsPage,
+} from "@/components";
 
 function App() {
   return (
@@ -6,6 +13,8 @@ function App() {
       <Navbar />
       <HomePage />
       <AboutPage />
+      <SkillsPage />
+      <ContactPage />
     </AppContainer>
   );
 }

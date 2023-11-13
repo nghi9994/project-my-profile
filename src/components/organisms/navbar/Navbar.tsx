@@ -31,7 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
         margin="auto"
       >
         <S.NavItem>
-          <Link href="#home">Nghi Nguyen</Link>
+          <Link href="#home">Nghi</Link>
         </S.NavItem>
         <HStack spacing={5}>
           <S.NavItem>
