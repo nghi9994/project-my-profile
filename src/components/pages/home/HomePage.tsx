@@ -1,18 +1,9 @@
-import Profile from "@/assets/images/profile.jpg";
 import * as S from "./HomePage.styles";
 
 import { useDevice } from "@/hooks";
-import {
-  Box,
-  Divider,
-  Image,
-  Stack,
-  StackDirection,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Divider, Image, Stack, StackDirection, Text } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
-import { Svg } from "@/components";
+import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
 
 interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -55,7 +46,7 @@ export const HomePage: FC<HomePageProps> = ({
             >
               Nghi Nguyen
             </Text>
-            <Svg type="icon-hand" size={50} />
+            <Image src={HAND_ICON_URL} alt="hand-icon" />
           </Stack>
 
           <Stack direction="row" width="100%" alignItems="center" gap={4}>
@@ -78,10 +69,10 @@ export const HomePage: FC<HomePageProps> = ({
 
         <Stack flex={1} minW={250}>
           <Image
+            src={PROFILE_URL}
+            alt="My Profile"
             borderRadius="full"
             boxSize={250}
-            src={Profile}
-            alt="My Profile"
             margin="auto"
             objectFit="cover"
           />

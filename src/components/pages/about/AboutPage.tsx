@@ -1,4 +1,3 @@
-import Profile from "@/assets/images/profile.jpg";
 import * as S from "./AboutPage.styles";
 
 import { useDevice } from "@/hooks";
@@ -11,6 +10,7 @@ import {
   TypographyProps,
 } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
+import { PROFILE_URL } from "@/constants";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -54,7 +54,8 @@ export const AboutPage: FC<AboutPageProps> = ({
       <Stack gap={6} height={"100%"} padding="10px 0" {...customStyles}>
         <Box flex={isMobile || isTablet ? "none" : 1}>
           <Image
-            src={Profile}
+            src={PROFILE_URL}
+            alt="My Profile"
             boxSize={isMobile ? 250 : isTablet ? 300 : 400}
             borderRadius={8}
             objectFit="cover"
