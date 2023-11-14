@@ -1,20 +1,18 @@
+import Profile from "@/assets/images/profile.jpg";
 import * as S from "./HomePage.styles";
-import Profile from "@/assets/images/cat-profile.jpeg";
 
+import { useDevice } from "@/hooks";
 import {
   Box,
   Divider,
-  Flex,
   Image,
-  HStack,
   Stack,
   StackDirection,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
-import { Hooks } from "minimist-react-library";
-import { useDevice } from "@/hooks";
+import { Svg } from "@/components";
 
 interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -43,22 +41,27 @@ export const HomePage: FC<HomePageProps> = ({
       <Stack
         margin={"0 16px"}
         height={"100%"}
-        gap={10}
+        gap={6}
         position="relative"
         {...customStyles}
       >
-        <VStack flex={1} alignItems={"flex-start"}>
-          <Text
-            color="default.title"
-            fontSize={isMobile ? "4xl" : "6xl"}
-            fontWeight="bold"
-            whiteSpace="nowrap"
-          >
-            Nghi Nguyen
-          </Text>
+        <Stack flex={1} alignItems={"flex-start"}>
+          <Stack direction="row" width="100%" alignItems="center" gap={4}>
+            <Text
+              color="default.title"
+              fontSize={isMobile ? "4xl" : "6xl"}
+              fontWeight="bold"
+              whiteSpace="nowrap"
+            >
+              Nghi Nguyen
+            </Text>
+            <Svg type="icon-hand" size={50} />
+          </Stack>
 
-          <Stack direction="row" width="100%" alignItems="center" gap={5}>
-            <Divider borderBottomWidth={2} width="50px" />
+          <Stack direction="row" width="100%" alignItems="center" gap={4}>
+            {!isMobile && (
+              <Divider borderBottomWidth={2} width={isMobile ? 0 : "50px"} />
+            )}
             <Text
               color="default.titleDark"
               fontSize={isMobile ? "xl" : "2xl"}
@@ -71,9 +74,9 @@ export const HomePage: FC<HomePageProps> = ({
             Lorem ipsum is placeholder text commonly used in the graphic, print,
             and publishing industries for previewing layouts and visual mockups.
           </Text>
-        </VStack>
+        </Stack>
 
-        <VStack flex={1}>
+        <Stack flex={1} minW={250}>
           <Image
             borderRadius="full"
             boxSize={250}
@@ -82,7 +85,7 @@ export const HomePage: FC<HomePageProps> = ({
             margin="auto"
             objectFit="cover"
           />
-        </VStack>
+        </Stack>
       </Stack>
     </S.Wrapper>
   );

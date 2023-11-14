@@ -9,6 +9,25 @@ interface NavbarProps extends HTMLAttributes<HTMLDivElement> {}
 export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
   const isScrolling = Hooks.Device.useScroll();
 
+  const navItems = [
+    {
+      name: "Home",
+      href: "#home",
+    },
+    {
+      name: "About",
+      href: "#about",
+    },
+    {
+      name: "Skills",
+      href: "#skills",
+    },
+    {
+      name: "Contact",
+      href: "#contact",
+    },
+  ];
+
   return (
     <Container
       id="navbar"
@@ -33,19 +52,12 @@ export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
         <S.NavItem>
           <Link href="#home">Nghi</Link>
         </S.NavItem>
-        <HStack spacing={5}>
-          <S.NavItem>
-            <Link href="#home">Home</Link>
-          </S.NavItem>
-          <S.NavItem>
-            <Link href="#about">About</Link>
-          </S.NavItem>
-          <S.NavItem>
-            <Link href="#skills">Skills</Link>
-          </S.NavItem>
-          <S.NavItem>
-            <Link href="#contact">Contact</Link>
-          </S.NavItem>
+        <HStack spacing={8}>
+          {navItems.map((item) => (
+            <S.NavItem key={item.name}>
+              <Link href={item.href}>{item.name}</Link>
+            </S.NavItem>
+          ))}
         </HStack>
       </HStack>
     </Container>

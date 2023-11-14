@@ -9,6 +9,9 @@
     }
   },
   "global": {
+    "*": {
+      "transition": "all 0.4s ease"
+    },
     "html": {
       "background": "default.container",
       "color": "default.text",

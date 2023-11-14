@@ -2,11 +2,13 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import svgr from "@svgr/rollup";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(() => ({
   plugins: [
     react(),
+    svgr(),
     tsConfigPaths(),
     dts({
       include: ["src"],

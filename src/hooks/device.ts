@@ -8,8 +8,8 @@ export const useDevice = () => {
   const { width } = Hooks.Device.useWindowSize();
 
   useEffect(() => {
-    setIsMobile(width <= 425);
-    setIsTablet(width > 425 && width <= 768);
+    setIsMobile(width <= 550);
+    setIsTablet(width > 550 && width <= 850);
   }, [width]);
 
   return { isMobile, isTablet };
