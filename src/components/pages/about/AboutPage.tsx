@@ -1,6 +1,6 @@
 import * as S from "./AboutPage.styles";
 
-import { PROFILE_URL } from "@/constants";
+import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
 import { useDevice } from "@/hooks";
 import {
   Box,
@@ -11,9 +11,10 @@ import {
   Text,
   TypographyProps,
 } from "@chakra-ui/react";
+import { Utils } from "minimist-react-library";
 import { FC, HTMLAttributes } from "react";
-import { PiClipboardTextBold, PiMedal, PiConfetti } from "react-icons/pi";
 import { CgFileDocument } from "react-icons/cg";
+import { PiConfetti, PiMedal } from "react-icons/pi";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -152,7 +153,11 @@ export const AboutPage: FC<AboutPageProps> = ({
                 experience in ReactJS, JavaScript, HTML and CSS, I bring a
                 passion for clean, user-focused design to every project.
               </Text>
-              <Button height={50} width={isMobile || isTablet ? "100%" : "50%"}>
+              <Button
+                height={50}
+                width={isMobile || isTablet ? "100%" : "50%"}
+                onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
+              >
                 <Text paddingRight={2}>Download CV</Text>{" "}
                 <CgFileDocument size={20} />
               </Button>
