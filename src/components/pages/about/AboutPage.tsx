@@ -46,7 +46,13 @@ export const AboutPage: FC<AboutPageProps> = ({
         };
 
   return (
-    <S.Wrapper id="about" className={className} textAlign="center" {...props}>
+    <S.Wrapper
+      id="about"
+      className={className}
+      textAlign="center"
+      minH={800}
+      {...props}
+    >
       <Stack height="100%">
         <S.PageTitle
           color={"default.titleDark"}
@@ -63,7 +69,11 @@ export const AboutPage: FC<AboutPageProps> = ({
           flex={1}
           justifyContent={isMobile || isTablet ? "flex-start" : "center"}
         >
-          <Stack gap={6} height={400} {...customStyles}>
+          <Stack
+            gap={6}
+            height={isMobile || isTablet ? "fit-content" : 400}
+            {...customStyles}
+          >
             <Box flex={isMobile || isTablet ? "none" : 1}>
               <Image
                 src={PROFILE_URL}
@@ -80,6 +90,7 @@ export const AboutPage: FC<AboutPageProps> = ({
               justifyContent={
                 isMobile || isTablet ? "flex-start" : "space-between"
               }
+              gap={isMobile || isTablet ? 5 : "none"}
               height="100%"
             >
               <Stack flexDirection="row" justifyContent="space-between">
@@ -136,20 +147,15 @@ export const AboutPage: FC<AboutPageProps> = ({
                 </Box>
               </Stack>
               <Text color="default.text" fontSize="md">
-                Lorem ipsum is placeholder text commonly used in the graphic,
-                print, and publishing industries for previewing layouts and
-                visual mockups.
+                Coding isn't just a skill; it's my avenue for expressing
+                creativity and turning ideas into reality. With 2+ years of
+                experience in ReactJS, JavaScript, HTML and CSS, I bring a
+                passion for clean, user-focused design to every project.
               </Text>
-              <Button height={50} width="50%">
+              <Button height={50} width={isMobile || isTablet ? "100%" : "50%"}>
                 <Text paddingRight={2}>Download CV</Text>{" "}
                 <CgFileDocument size={20} />
               </Button>
-
-              {/* <Text color="default.text" fontSize="md">
-                Lorem ipsum is placeholder text commonly used in the graphic,
-                print, and publishing industries for previewing layouts and
-                visual mockups.
-              </Text> */}
             </Stack>
           </Stack>
         </Stack>

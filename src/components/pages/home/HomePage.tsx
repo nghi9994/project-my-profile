@@ -62,8 +62,8 @@ export const HomePage: FC<HomePageProps> = ({
             </Text>
           </Stack>
           <Text color="default.text" fontSize={isMobile ? "sm" : "md"}>
-            Lorem ipsum is placeholder text commonly used in the graphic, print,
-            and publishing industries for previewing layouts and visual mockups.
+            I'm software engineer based in Ho Chi Minh city, and I'm very
+            passionate and dedicated to my work.
           </Text>
         </Stack>
 

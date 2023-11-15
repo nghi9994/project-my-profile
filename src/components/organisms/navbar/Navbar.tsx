@@ -3,6 +3,7 @@ import * as S from "./Navbar.styles";
 import { Container, HStack, Link } from "@chakra-ui/react";
 import { Hooks } from "minimist-react-library";
 import { FC, HTMLAttributes, useEffect } from "react";
+import { PiHouseBold } from "react-icons/pi";
 
 interface NavbarProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -50,7 +51,9 @@ export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
         margin="auto"
       >
         <S.NavItem>
-          <Link href="#home">Nghi</Link>
+          <Link href="#home">
+            <PiHouseBold size={20} />
+          </Link>
         </S.NavItem>
         <HStack spacing={8}>
           {navItems.map((item) => (

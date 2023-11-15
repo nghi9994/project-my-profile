@@ -13,9 +13,10 @@ export const PageContainer: FC<PageContainerProps> = ({
   return (
     <S.Wrapper
       className={`page-container ${className}`}
-      height={"100vh"}
-      maxW={"100vw"}
-      paddingTop={"60px"}
+      height="100vh"
+      maxW="100%"
+      paddingTop="70px"
+      position="relative"
       {...props}
     >
       {children}
