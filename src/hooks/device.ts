@@ -9,7 +9,7 @@ export const useDevice = () => {
 
   useEffect(() => {
     setIsMobile(width <= 550);
-    setIsTablet(width > 550 && width <= 768);
+    setIsTablet(width > 550 && width <= 900);
   }, [width]);
 
   return { isMobile, isTablet };

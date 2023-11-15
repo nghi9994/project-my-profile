@@ -23,7 +23,7 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
         flexWrap="wrap"
         justifyContent="space-around"
         margin="auto"
-        gap="5%"
+        gap="15px 5px"
       >
         {navItems.map((item) => (
           <Stack
@@ -31,7 +31,6 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
             alignItems="center"
             justifyContent="flex-start"
             gap="2px"
-            marginBottom="15px"
             width={"30%"}
           >
             {item.icon}

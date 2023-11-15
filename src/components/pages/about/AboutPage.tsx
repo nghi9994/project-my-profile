@@ -15,6 +15,7 @@ import { Utils } from "minimist-react-library";
 import { FC, HTMLAttributes } from "react";
 import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
+import { ProfileButton } from "@/components";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -91,10 +92,15 @@ export const AboutPage: FC<AboutPageProps> = ({
               justifyContent={
                 isMobile || isTablet ? "flex-start" : "space-between"
               }
+              alignItems={isMobile || isTablet ? "center" : "unset"}
               gap={isMobile || isTablet ? 5 : "none"}
               height="100%"
             >
-              <Stack flexDirection="row" justifyContent="space-between">
+              <Stack
+                flexDirection="row"
+                justifyContent="space-between"
+                width="100%"
+              >
                 <Box
                   flex={1}
                   borderRadius={4}
@@ -148,20 +154,19 @@ export const AboutPage: FC<AboutPageProps> = ({
                 </Box>
               </Stack>
               <Text color="default.text" fontSize="md">
-                Coding isn't just a skill; it's my avenue for expressing
+                Coding is not just a skill; it's my avenue for expressing
                 creativity and turning ideas into reality. With 2+ years of
                 experience in ReactJS, JavaScript, HTML and CSS, I bring a
                 passion for clean, user-focused design to every project.
               </Text>
-              <Button
-                borderRadius={10}
-                height={50}
-                width={isMobile || isTablet ? "100%" : "50%"}
+              <ProfileButton
+                buttonText="Download CV"
+                rightIcon={<CgFileDocument color="white" size={25} />}
+                width="50%"
+                transform={isMobile ? "scale(0.8)" : "none"}
+                transformOrigin="center"
                 onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
-              >
-                <Text paddingRight={2}>Download CV</Text>{" "}
-                <CgFileDocument size={20} />
-              </Button>
+              />
             </Stack>
           </Stack>
         </Stack>
