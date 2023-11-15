@@ -154,6 +154,7 @@ export const AboutPage: FC<AboutPageProps> = ({
                 passion for clean, user-focused design to every project.
               </Text>
               <Button
+                borderRadius={10}
                 height={50}
                 width={isMobile || isTablet ? "100%" : "50%"}
                 onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}

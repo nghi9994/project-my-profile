@@ -1,6 +1,6 @@
 import * as S from "./PageContainer.styles";
 
-import { ContainerProps, Stack } from "@chakra-ui/react";
+import { ContainerProps } from "@chakra-ui/react";
 import { FC } from "react";
 
 interface PageContainerProps extends ContainerProps {}

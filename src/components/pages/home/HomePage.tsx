@@ -1,9 +1,9 @@
 import * as S from "./HomePage.styles";
 
+import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
 import { useDevice } from "@/hooks";
 import { Divider, Image, Stack, StackDirection, Text } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
-import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
 
 interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
