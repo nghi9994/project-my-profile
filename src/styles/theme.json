@@ -45,7 +45,6 @@
             "base": "8px 8px 0 0",
             "sm": "0 0 8px 8px"
           },
-          "bg": "white",
           "maxW": "100vw",
           "padding": "0",
           "position": "fixed",

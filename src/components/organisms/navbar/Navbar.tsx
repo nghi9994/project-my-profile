@@ -52,6 +52,8 @@ export const Navbar: FC<NavbarProps> = (props) => {
       id="navbar"
       variant="navbar"
       boxShadow={isScrolling ? "default.bottomModal" : "none"}
+      backdropFilter={{ base: "blur(20px)", sm: "unset" }}
+      bg={{ base: "none", sm: "white" }}
       {...props}
     >
       {/* Content section */}
@@ -89,6 +91,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
       </Flex>
 
       <BottomNavbar
+        display={{ base: "block", sm: "none" }}
         navItems={navItems}
         toggleModal={toggleBottomNavbar}
         transform={isShowBottomNavbar ? "translateY(0px)" : "translateY(200px)"}
