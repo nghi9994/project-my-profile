@@ -3,7 +3,6 @@ import * as S from "./HomePage.styles";
 import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
 import { useDevice } from "@/hooks";
 import {
-  Box,
   Button,
   Divider,
   Image,
@@ -15,9 +14,7 @@ import {
 import { FC, HTMLAttributes } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
-import { FiSend } from "react-icons/fi";
 import { PiPaperPlaneTilt } from "react-icons/pi";
-import { ProfileButton } from "@/components";
 
 interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -75,18 +72,19 @@ export const HomePage: FC<HomePageProps> = ({
               Frontend Software Engineer
             </Text>
           </Stack>
-          <Text color="default.text" fontSize={isMobile ? "sm" : "md"}>
+          <Text color="default.text" fontSize={{ base: "sm", sm: "md" }}>
             I'm software engineer based in Ho Chi Minh city, and I'm very
             passionate and dedicated to my work.
           </Text>
 
-          <Link href="#contact" marginTop={10}>
-            <ProfileButton
-              buttonText="Say Hello"
+          <Link href="#contact" marginTop={{ base: 5, sm: 10 }}>
+            <Button
               rightIcon={<PiPaperPlaneTilt color="white" size={25} />}
-              transform={isMobile ? "scale(0.8)" : "none"}
+              transform={{ base: "scale(0.8)", sm: "none" }}
               transformOrigin="left"
-            />
+            >
+              Say Hello
+            </Button>
           </Link>
         </Stack>
 
@@ -95,7 +93,7 @@ export const HomePage: FC<HomePageProps> = ({
             src={PROFILE_URL}
             alt="My Profile"
             borderRadius="full"
-            boxSize={isMobile ? 250 : isTablet ? 400 : 350}
+            boxSize={{ base: 250, sm: 450, md: 350 }}
             boxShadow="dark-lg"
             margin="auto"
             objectFit="cover"
@@ -103,16 +101,18 @@ export const HomePage: FC<HomePageProps> = ({
         </Stack>
       </Stack>
 
-      <S.MouseWrapper
-        flexDirection="row"
-        alignItems="center"
-        position="absolute"
-        left={30}
-        bottom={50}
-      >
-        <BiMouse size={isMobile ? 30 : 50} /> <Text>Scroll Down</Text>{" "}
-        <FaArrowDown className="arrow-down" size={20} />
-      </S.MouseWrapper>
+      {!isMobile && (
+        <S.MouseWrapper
+          flexDirection="row"
+          alignItems="center"
+          position="absolute"
+          left={30}
+          bottom={50}
+        >
+          <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
+          <FaArrowDown className="arrow-down" size={20} />
+        </S.MouseWrapper>
+      )}
     </S.Wrapper>
   );
 };

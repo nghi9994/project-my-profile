@@ -15,7 +15,7 @@ export const PageContainer: FC<PageContainerProps> = ({
       className={`page-container ${className}`}
       height="100vh"
       maxW="100%"
-      paddingTop="70px"
+      paddingTop={{ base: "30px", sm: "70px" }}
       position="relative"
       {...props}
     >

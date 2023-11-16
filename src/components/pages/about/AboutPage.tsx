@@ -15,7 +15,6 @@ import { Utils } from "minimist-react-library";
 import { FC, HTMLAttributes } from "react";
 import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
-import { ProfileButton } from "@/components";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 type CustomStyleType = {
@@ -159,14 +158,15 @@ export const AboutPage: FC<AboutPageProps> = ({
                 experience in ReactJS, JavaScript, HTML and CSS, I bring a
                 passion for clean, user-focused design to every project.
               </Text>
-              <ProfileButton
-                buttonText="Download CV"
+              <Button
                 rightIcon={<CgFileDocument color="white" size={25} />}
                 width="50%"
-                transform={isMobile ? "scale(0.8)" : "none"}
+                transform={{ base: "scale(0.8)", sm: "none" }}
                 transformOrigin="center"
                 onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
-              />
+              >
+                Download CV
+              </Button>
             </Stack>
           </Stack>
         </Stack>

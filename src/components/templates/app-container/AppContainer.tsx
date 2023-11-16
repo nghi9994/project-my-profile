@@ -1,7 +1,7 @@
 import * as S from "./AppContainer.styles";
 
 import { useDevice } from "@/hooks";
-import { Box, ContainerProps } from "@chakra-ui/react";
+import { Box, Button, Center, ContainerProps } from "@chakra-ui/react";
 import { Hooks } from "minimist-react-library";
 import { FC } from "react";
 import { IoArrowUpOutline } from "react-icons/io5";
@@ -13,11 +13,10 @@ export const AppContainer: FC<AppContainerProps> = ({
   children,
   ...props
 }) => {
-  const { useScrolling, useScrollTo } = Hooks.Window;
+  const { useScrolling } = Hooks.Window;
 
   const { isMobile, isTablet } = useDevice();
   const isScrolling = useScrolling();
-  const { scrollTo } = useScrollTo();
 
   const getPosition = () => {
     if (isScrolling) {
@@ -43,19 +42,19 @@ export const AppContainer: FC<AppContainerProps> = ({
       {...props}
     >
       {children}
-      <Box
-        background="rgba(0,0,0,0.8)"
+      <Center
+        as="a"
+        href="#home"
+        background="default.buttonBg"
         borderRadius={4}
         padding={2}
         width="fit-content"
         position="fixed"
         right={5}
-        cursor="pointer"
-        onClick={() => scrollTo()}
         {...getPosition()}
       >
         <IoArrowUpOutline color="white" size={20} />
-      </Box>
+      </Center>
     </S.Wrapper>
   );
 };

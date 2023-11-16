@@ -16,13 +16,14 @@ export const ProfileButton: FC<ProfileButtonProps> = ({
   return (
     <S.ProfileButtonWrapper
       className={className}
-      bgColor="rgba(0,0,0,0.75)"
-      borderRadius="16px"
-      height="60px"
-      width="180px"
-      _hover={{
-        bgColor: "rgba(0,0,0,0.75)",
-      }}
+      variant="solid"
+      // bgColor="rgba(0,0,0,0.75)"
+      // borderRadius="16px"
+      // height="60px"
+      // width="180px"
+      // _hover={{
+      //   bgColor: "rgba(0,0,0,0.75)",
+      // }}
       {...props}
     >
       <Text color="white" fontSize="xl">

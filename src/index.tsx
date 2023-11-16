@@ -6,9 +6,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 export const theme = extendTheme({
+  breakpoints: DefaultTheme.breakpoints,
   colors: DefaultTheme.colors,
+  components: DefaultTheme.components,
   styles: {
-    global: DefaultTheme.global,
+    global: DefaultTheme.styles.global,
   },
 });
 
