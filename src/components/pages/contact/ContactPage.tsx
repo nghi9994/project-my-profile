@@ -1,25 +1,18 @@
-import * as S from "./ContactPage.styles";
-
-import { VStack, useStyleConfig, Container } from "@chakra-ui/react";
+import { Container, Stack, Text } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
 
 interface ContactPageProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const ContactPage: FC<ContactPageProps> = ({ children, ...props }) => {
+export const ContactPage: FC<ContactPageProps> = (props) => {
   return (
     <Container id="contact" variant="pageLayout" {...props}>
-      <VStack justifyContent={"flex-start"} height={"100%"}>
-        <S.PageTitle
-          color={"default.titleDark"}
-          fontSize="4xl"
-          fontWeight="bold"
-        >
-          My Contact
-        </S.PageTitle>
-        <S.PageSubtitle color={"default.title"} fontSize="sm">
-          My Introduction
-        </S.PageSubtitle>
-      </VStack>
+      {/* Content section */}
+      <Stack className="contact__content" height={"100%"} textAlign="center">
+        {/* START: Header */}
+        <Text variant="title">My Contact</Text>
+        <Text variant="subtitle">My Introduction</Text>
+        {/* END: Header */}
+      </Stack>
     </Container>
   );
 };

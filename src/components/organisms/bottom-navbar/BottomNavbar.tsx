@@ -50,8 +50,8 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
             <Text fontSize="xs">{item.name}</Text>
           </Stack>
         ))}
-        <Box width={"60%"}></Box>
-        <Box width={"60%"}></Box>
+        <Box width={"30%"}></Box>
+        <Box width={"30%"}></Box>
         <Center
           className="navbar__close-icon"
           as="button"

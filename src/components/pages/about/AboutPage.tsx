@@ -1,5 +1,4 @@
 import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
-import { useDevice } from "@/hooks";
 import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
 import { Utils } from "minimist-react-library";
 import { FC, HTMLAttributes } from "react";
@@ -9,8 +8,6 @@ import { PiConfetti, PiMedal } from "react-icons/pi";
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const AboutPage: FC<AboutPageProps> = (props) => {
-  const { isMobile, isTablet } = useDevice();
-
   return (
     <Container id="about" variant="pageLayout" {...props}>
       {/* Content section */}
@@ -34,11 +31,11 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
             justifyContent={{ base: "flex-start", md: "space-around" }}
             textAlign={{ base: "center", md: "left" }}
           >
-            <Box flex={isMobile || isTablet ? "none" : 1}>
+            <Box flex={{ base: "none", md: 1 }}>
               <Image
                 src={PROFILE_URL}
                 alt="My Profile"
-                boxSize={isMobile ? 250 : isTablet ? 300 : 400}
+                boxSize={{ base: "100%", md: "400px" }}
                 borderRadius={8}
                 objectFit="cover"
                 maxH="100%"
@@ -46,12 +43,10 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
             </Box>
 
             <Stack
-              flex={isMobile || isTablet ? "none" : 1}
-              justifyContent={
-                isMobile || isTablet ? "flex-start" : "space-between"
-              }
-              alignItems={isMobile || isTablet ? "center" : "unset"}
-              gap={isMobile || isTablet ? 5 : "none"}
+              flex={{ base: "none", md: 1 }}
+              justifyContent={{ base: "flex-start", md: "space-between" }}
+              alignItems={{ base: "center", md: "unset" }}
+              gap={{ base: 5, md: "none" }}
               height="100%"
             >
               <Stack

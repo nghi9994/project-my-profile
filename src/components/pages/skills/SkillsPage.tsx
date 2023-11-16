@@ -7,8 +7,16 @@ interface SkillsPageProps extends HTMLAttributes<HTMLDivElement> {}
 export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
   const frontendData = [
     {
+      name: "HTML/CSS",
+      rate: 9,
+    },
+    {
       name: "ReactJS",
       rate: 9,
+    },
+    {
+      name: "React Native (Mobile)",
+      rate: 5,
     },
     {
       name: "Typescript",
@@ -19,14 +27,26 @@ export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
       rate: 8,
     },
     {
-      name: "HTML/CSS",
-      rate: 9,
+      name: "Ionic (Mobile)",
+      rate: 6,
+    },
+    {
+      name: "NextJS",
+      rate: 4,
+    },
+    {
+      name: "Storybook",
+      rate: 7,
+    },
+    {
+      name: "Playwright",
+      rate: 3,
     },
   ];
   const backendData = [
     {
       name: "SQL",
-      rate: 5,
+      rate: 2,
     },
     {
       name: "NodeJS",

@@ -4,6 +4,7 @@ import {
   ContactPage,
   HomePage,
   Navbar,
+  QualificationPage,
   SkillsPage,
 } from "@/components";
 
@@ -14,6 +15,7 @@ function App() {
       <HomePage />
       <AboutPage />
       <SkillsPage />
+      <QualificationPage />
       <ContactPage />
     </AppContainer>
   );

@@ -5,7 +5,8 @@
   },
   "colors": {
     "default": {
-      "buttonBg": "rgba(0,0,0,0.8)",
+      "buttonBg": "rgba(0,0,0,0.75)",
+      "buttonBgHover": "rgba(0,0,0,0.8)",
       "text": "#757575",
       "title": "#333333",
       "titleDark": "#000000"
@@ -21,7 +22,7 @@
           "height": "60px",
           "minWidth": "180px",
           "_hover": {
-            "bg": "default.buttonBg"
+            "bg": "default.buttonBgHover"
           }
         }
       }
@@ -41,6 +42,7 @@
           "right": "0"
         },
         "navbar": {
+          "bg": "white",
           "borderRadius": {
             "base": "8px 8px 0 0",
             "sm": "0 0 8px 8px"
@@ -57,8 +59,9 @@
         "pageLayout": {
           "height": "100vh",
           "maxW": "100%",
-          "minH": "800px",
-          "paddingTop": { "base": "30px", "sm": "70px" },
+          "minH": "750px",
+          "maxH": "900px",
+          "paddingTop": { "base": "20px", "sm": "70px" },
           "position": "relative"
         }
       }

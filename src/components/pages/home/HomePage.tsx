@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { Hooks } from "minimist-react-library";
 import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
@@ -44,6 +45,8 @@ const arrowAnimation = `${downAnimate} 0.8s ease-in-out infinite alternate;`;
 
 export const HomePage: FC<HomePageProps> = (props) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const { scrollTo } = Hooks.Window.useScrollTo();
+
   return (
     <Container id="home" variant="pageLayout" {...props}>
       {/* Content section */}
@@ -84,7 +87,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
             </Text>
           </Stack>
           <Text color="default.text" fontSize={{ base: "sm", sm: "md" }}>
-            I'm software engineer based in Ho Chi Minh city, and I'm very
+            I'm an software engineer based in Ho Chi Minh city, and I am very
             passionate and dedicated to my work.
           </Text>
 
@@ -120,6 +123,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
 
       {/* Arrow down section */}
       <Stack
+        as="button"
         display={{ base: "none", sm: "flex" }}
         flexDirection="row"
         alignItems="center"
@@ -131,6 +135,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
             animation: arrowAnimation,
           },
         }}
+        onClick={() => scrollTo(800, 0)}
       >
         <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
         <FaArrowDown className="arrow-down" size={20} />

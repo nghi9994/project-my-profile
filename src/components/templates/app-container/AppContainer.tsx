@@ -46,13 +46,14 @@ export const AppContainer: FC<AppContainerProps> = ({
         as="a"
         href="#home"
         aria-label="home"
-        background="default.buttonBg"
+        bg="default.buttonBg"
+        _hover={{ bg: "default.buttonBgHover" }}
         borderRadius={4}
         padding={2}
         width="fit-content"
         position="fixed"
-        right={5}
-        {...getPosition()}
+        bottom={isScrolling ? { base: 16, sm: 5 } : -20}
+        right="32px"
       >
         <IoArrowUpOutline color="white" size={20} />
       </Center>

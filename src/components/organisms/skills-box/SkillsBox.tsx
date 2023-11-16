@@ -1,4 +1,5 @@
 import { Box, BoxProps, Circle, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Utils } from "minimist-react-library";
 import { FC } from "react";
 
 interface SkillsBoxProps extends BoxProps {
@@ -12,8 +13,14 @@ export const SkillsBox: FC<SkillsBoxProps> = ({
   data,
   ...props
 }) => {
+  const { list: sortedList } = Utils.Array.sortList({
+    list: data,
+    field: "rate",
+    sortType: "desc",
+  });
+
   const renderRating = () => {
-    return data.map((item) => {
+    return sortedList.map((item) => {
       return (
         <Flex key={item.name} alignItems="center" marginBottom="5px">
           <Text

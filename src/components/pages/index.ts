@@ -1,4 +1,5 @@
 export * from "./about";
 export * from "./contact";
-export * from "./skills";
 export * from "./home";
+export * from "./qualification";
+export * from "./skills";
