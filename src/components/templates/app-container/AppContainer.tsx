@@ -1,7 +1,7 @@
 import * as S from "./AppContainer.styles";
 
 import { useDevice } from "@/hooks";
-import { Box, Button, Center, ContainerProps } from "@chakra-ui/react";
+import { Center, ContainerProps } from "@chakra-ui/react";
 import { Hooks } from "minimist-react-library";
 import { FC } from "react";
 import { IoArrowUpOutline } from "react-icons/io5";
@@ -45,6 +45,7 @@ export const AppContainer: FC<AppContainerProps> = ({
       <Center
         as="a"
         href="#home"
+        aria-label="home"
         background="default.buttonBg"
         borderRadius={4}
         padding={2}

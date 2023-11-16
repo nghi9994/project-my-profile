@@ -47,30 +47,22 @@ export const Navbar: FC<NavbarProps> = (props) => {
     },
   ];
 
-  const customStyles = isMobile
-    ? { left: 0, right: 0, bottom: 0 }
-    : {
-        left: 0,
-        right: 0,
-        top: 0,
-      };
-
   return (
     <Container
       id="navbar"
       variant="navbar"
-      boxShadow={isScrolling ? "sm" : "none"}
-      {...customStyles}
+      boxShadow={isScrolling ? "default.bottomModal" : "none"}
       {...props}
     >
+      {/* Content section */}
       <Flex
         className="navbar__content"
         justifyContent={"space-between"}
         margin="auto"
         maxW={"container.lg"}
-        padding="10px 32px"
+        padding="15px 32px"
       >
-        <Center className="navbar__left" as="a" href="#home">
+        <Center className="navbar__left" as="a" href="#home" aria-label="home">
           <PiHouse size={20} />
         </Center>
 

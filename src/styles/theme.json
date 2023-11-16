@@ -5,7 +5,7 @@
   },
   "colors": {
     "default": {
-      "buttonBg": "rgba(0,0,0,0.75)",
+      "buttonBg": "rgba(0,0,0,0.8)",
       "text": "#757575",
       "title": "#333333",
       "titleDark": "#000000"
@@ -41,25 +41,46 @@
           "right": "0"
         },
         "navbar": {
+          "borderRadius": {
+            "base": "8px 8px 0 0",
+            "sm": "0 0 8px 8px"
+          },
           "bg": "white",
           "maxW": "100vw",
-          "minH": "56px",
           "padding": "0",
           "position": "fixed",
+          "top": { "base": "unset", "sm": "0" },
+          "bottom": { "base": "0", "sm": "unset" },
+          "left": "0",
+          "right": "0",
           "zIndex": "1"
         },
         "pageLayout": {
           "height": "100vh",
           "maxW": "100%",
+          "minH": "800px",
           "paddingTop": { "base": "30px", "sm": "70px" },
           "position": "relative"
+        }
+      }
+    },
+    "Text": {
+      "variants": {
+        "title": {
+          "color": "default.titleDark",
+          "fontSize": { "base": "4xl", "sm": "5xl", "md": "6xl" },
+          "fontWeight": "bold"
+        },
+        "subtitle": {
+          "color": "default.title",
+          "fontSize": { "base": "xl", "md": "2xl" }
         }
       }
     }
   },
   "shadows": {
     "default": {
-      "bottomModal": "0 1px 3px 0 rgba(0, 0, 0, 0.25)"
+      "bottomModal": "0 0px 5px 1px rgba(0, 0, 0, 0.25)"
     }
   },
   "styles": {

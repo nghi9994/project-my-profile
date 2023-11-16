@@ -28,6 +28,7 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
       padding="15px 0"
       {...props}
     >
+      {/* Content section */}
       <Flex
         className="bottom-navbar__content"
         flexWrap="wrap"
@@ -36,10 +37,10 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
       >
         {navItems.map((item) => (
           <Stack
+            key={item.name}
             className="navbar__item"
             as="a"
             href={item.href}
-            key={item.name}
             alignItems="center"
             justifyContent="flex-start"
             gap="2px"
@@ -54,6 +55,7 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
         <Center
           className="navbar__close-icon"
           as="button"
+          aria-label="close-icon"
           onClick={() => toggleModal && toggleModal()}
           width={"30%"}
         >

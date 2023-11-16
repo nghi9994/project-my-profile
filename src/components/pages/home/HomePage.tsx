@@ -1,24 +1,52 @@
-import * as S from "./HomePage.styles";
-
 import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
 import {
   Button,
+  Center,
   Container,
+  ContainerProps,
   Divider,
   Image,
+  keyframes,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { FC, HTMLAttributes } from "react";
+import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
 
-interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
+interface HomePageProps extends ContainerProps {}
 
-export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
+const profileAnimate = keyframes`
+    0% {
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100% {
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+`;
+
+const profileAnimation = `${profileAnimate} 8s ease-in-out infinite alternate;`;
+
+const downAnimate = keyframes`
+    0% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(3px);
+    }
+`;
+
+const arrowAnimation = `${downAnimate} 0.8s ease-in-out infinite alternate;`;
+
+export const HomePage: FC<HomePageProps> = (props) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   return (
     <Container id="home" variant="pageLayout" {...props}>
+      {/* Content section */}
       <Stack
         className="home__content"
         height={"100%"}
@@ -27,6 +55,7 @@ export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
         alignItems="center"
         flexDirection={{ base: "column-reverse", sm: "row" }}
       >
+        {/* Left side */}
         <Stack
           className="home__left"
           flex={1}
@@ -34,12 +63,7 @@ export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
           gap={5}
         >
           <Stack direction="row" width="100%" alignItems="center" gap={4}>
-            <Text
-              color="default.title"
-              fontSize={{ base: "4xl", sm: "5xl", md: "6xl" }}
-              fontWeight="bold"
-              whiteSpace="nowrap"
-            >
+            <Text variant="title" whiteSpace="nowrap">
               Nghi Nguyen
             </Text>
             <Image src={HAND_ICON_URL} alt="hand-icon" />
@@ -52,8 +76,8 @@ export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
               width={{ base: 0, sm: "50px" }}
             />
             <Text
+              variant="subtitle"
               color="default.titleDark"
-              fontSize={{ base: "xl", md: "2xl" }}
               whiteSpace={{ base: "unset", md: "nowrap" }}
             >
               Frontend Software Engineer
@@ -76,30 +100,41 @@ export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
           </Button>
         </Stack>
 
-        <Stack className="home__right" flex={1}>
-          <S.ProfileImage
-            src={PROFILE_URL}
-            alt="My Profile"
-            borderRadius="full"
+        {/* Right side */}
+        <Center className="home__right" flex={1}>
+          <Image
+            display={isImageLoaded ? "block" : "none"}
+            onLoad={() => setIsImageLoaded(true)}
+            animation={profileAnimation}
             boxSize={{ base: 300, md: 400 }}
             boxShadow="dark-lg"
-            margin="auto"
             objectFit="cover"
+            margin="auto"
+            src={PROFILE_URL}
+            fallbackSrc="https://via.placeholder.com/150"
+            alt="My Profile"
+            borderRadius="full"
           />
-        </Stack>
+        </Center>
       </Stack>
 
-      <S.MouseWrapper
+      {/* Arrow down section */}
+      <Stack
         display={{ base: "none", sm: "flex" }}
         flexDirection="row"
         alignItems="center"
         position="absolute"
         left={30}
         bottom={50}
+        sx={{
+          ".arrow-down": {
+            animation: arrowAnimation,
+          },
+        }}
       >
         <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
         <FaArrowDown className="arrow-down" size={20} />
-      </S.MouseWrapper>
+      </Stack>
     </Container>
   );
 };

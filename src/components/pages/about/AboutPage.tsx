@@ -1,76 +1,38 @@
-import * as S from "./AboutPage.styles";
-
 import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
 import { useDevice } from "@/hooks";
-import {
-  Box,
-  Button,
-  Container,
-  Image,
-  Stack,
-  StackDirection,
-  Text,
-  TypographyProps,
-} from "@chakra-ui/react";
+import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
 import { Utils } from "minimist-react-library";
 import { FC, HTMLAttributes } from "react";
 import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
-type CustomStyleType = {
-  direction: StackDirection;
-  alignItems?: string;
-  justifyContent?: string;
-  textAlign?: TypographyProps["textAlign"];
-};
 
-export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
+export const AboutPage: FC<AboutPageProps> = (props) => {
   const { isMobile, isTablet } = useDevice();
 
-  const customStyles: CustomStyleType =
-    isMobile || isTablet
-      ? {
-          direction: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          textAlign: "center",
-        }
-      : {
-          direction: "row",
-          alignItems: "flex-start",
-          justifyContent: "space-around",
-          textAlign: "left",
-        };
-
   return (
-    <Container
-      id="about"
-      variant="pageLayout"
-      textAlign="center"
-      minH={800}
-      {...props}
-    >
-      <Stack height="100%">
-        <S.PageTitle
-          color={"default.titleDark"}
-          fontSize="4xl"
-          fontWeight="bold"
-        >
-          About Me
-        </S.PageTitle>
-        <S.PageSubtitle color={"default.title"} fontSize="sm">
-          My Introduction
-        </S.PageSubtitle>
+    <Container id="about" variant="pageLayout" {...props}>
+      {/* Content section */}
+      <Stack className="about__content" height="100%" textAlign="center">
+        {/* START: Header */}
+        <Text variant="title">About Me</Text>
+        <Text variant="subtitle">My Introduction</Text>
+        {/* END: Header */}
 
+        {/* START: Body */}
         <Stack
           flex={1}
-          justifyContent={isMobile || isTablet ? "flex-start" : "center"}
+          justifyContent={{ base: "flex-start", md: "center" }}
+          marginTop="20px"
         >
           <Stack
             gap={6}
-            height={isMobile || isTablet ? "fit-content" : 400}
-            {...customStyles}
+            height={{ base: "fit-content", md: "400px" }}
+            direction={{ base: "column", md: "row" }}
+            alignItems={{ base: "center", md: "flex-start" }}
+            justifyContent={{ base: "flex-start", md: "space-around" }}
+            textAlign={{ base: "center", md: "left" }}
           >
             <Box flex={isMobile || isTablet ? "none" : 1}>
               <Image
@@ -102,7 +64,7 @@ export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
                   borderRadius={4}
                   border="1px"
                   borderColor="default.text"
-                  height={100}
+                  padding="20px 0"
                 >
                   <Stack
                     alignItems="center"
@@ -112,12 +74,15 @@ export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
                     <PiMedal size={25} />
                     <Text
                       color="default.title"
-                      fontSize="sm"
+                      fontSize={{ base: "sm", sm: "md", md: "lg" }}
                       fontWeight="medium"
                     >
                       Experience
                     </Text>
-                    <Text color="default.text" fontSize="xs">
+                    <Text
+                      color="default.text"
+                      fontSize={{ base: "xs", sm: "sm", md: "md" }}
+                    >
                       2+ Years
                     </Text>
                   </Stack>
@@ -127,8 +92,7 @@ export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
                   borderRadius={4}
                   border="1px"
                   borderColor="default.text"
-                  height={100}
-                  width={150}
+                  padding="20px 0"
                 >
                   <Stack
                     alignItems="center"
@@ -138,35 +102,42 @@ export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
                     <PiConfetti size={25} />
                     <Text
                       color="default.title"
-                      fontSize="sm"
+                      fontSize={{ base: "sm", sm: "md", md: "lg" }}
                       fontWeight="medium"
                     >
                       Completed
                     </Text>
-                    <Text color="default.text" fontSize="xs">
+                    <Text
+                      color="default.text"
+                      fontSize={{ base: "xs", sm: "sm", md: "md" }}
+                    >
                       10+ Projects
                     </Text>
                   </Stack>
                 </Box>
               </Stack>
-              <Text color="default.text" fontSize="md">
-                Coding is not just a skill; it's my avenue for expressing
+              <Text
+                color="default.text"
+                fontSize={{ base: "md", sm: "lg", md: "xl" }}
+              >
+                Coding is not just a skill, it's my avenue for expressing
                 creativity and turning ideas into reality. With 2+ years of
                 experience in ReactJS, JavaScript, HTML and CSS, I bring a
                 passion for clean, user-focused design to every project.
               </Text>
               <Button
+                onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
                 rightIcon={<CgFileDocument color="white" size={25} />}
-                width="50%"
                 transform={{ base: "scale(0.8)", sm: "none" }}
                 transformOrigin="center"
-                onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
+                width="50%"
               >
                 Download CV
               </Button>
             </Stack>
           </Stack>
         </Stack>
+        {/* END: Body */}
       </Stack>
     </Container>
   );
