@@ -1,4 +1,5 @@
-import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
+import ProfileImage_2 from "@/assets/images/profile_2.jpeg";
+import { HAND_ICON_URL } from "@/constants";
 import {
   Button,
   Center,
@@ -113,7 +114,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
             boxShadow="dark-lg"
             objectFit="cover"
             margin="auto"
-            src={PROFILE_URL}
+            src={ProfileImage_2}
             fallbackSrc="https://via.placeholder.com/150"
             alt="My Profile"
             borderRadius="full"

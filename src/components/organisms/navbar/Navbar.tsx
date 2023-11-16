@@ -15,6 +15,8 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { LuImage } from "react-icons/lu";
 import { TbSmartHome } from "react-icons/tb";
 import { VscSend } from "react-icons/vsc";
+import { FaRegFileLines } from "react-icons/fa6";
+import { RxImage } from "react-icons/rx";
 
 interface NavbarProps extends ContainerProps {}
 
@@ -35,7 +37,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
       href: "#about",
     },
     {
-      icon: <IoDocumentTextOutline size={20} />,
+      icon: <FaRegFileLines size={20} />,
       name: "Skills",
       href: "#skills",
     },
@@ -45,7 +47,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
       href: "#qualification",
     },
     {
-      icon: <LuImage size={20} />,
+      icon: <RxImage size={20} />,
       name: "Portfolio",
       href: "#portfolio",
     },

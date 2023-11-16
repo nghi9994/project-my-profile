@@ -15,7 +15,7 @@ export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
       rate: 9,
     },
     {
-      name: "React Native (Mobile)",
+      name: "React Native",
       rate: 5,
     },
     {
@@ -27,7 +27,7 @@ export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
       rate: 8,
     },
     {
-      name: "Ionic (Mobile)",
+      name: "Ionic",
       rate: 6,
     },
     {

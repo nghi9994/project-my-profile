@@ -1,3 +1,4 @@
+import ProfileImage_2 from "@/assets/images/profile_2.jpeg";
 import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
 import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
 import { Utils } from "minimist-react-library";
@@ -33,12 +34,12 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
           >
             <Box flex={{ base: "none", md: 1 }}>
               <Image
-                src={PROFILE_URL}
+                src={ProfileImage_2}
                 alt="My Profile"
                 boxSize={{ base: "100%", md: "400px" }}
                 borderRadius={8}
                 objectFit="cover"
-                maxH="100%"
+                maxH={{ base: "350px", md: "100%" }}
               />
             </Box>
 
