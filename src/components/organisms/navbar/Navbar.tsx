@@ -1,20 +1,24 @@
-import * as S from "./Navbar.styles";
-
 import { BottomNavbar } from "@/components";
 import { useDevice } from "@/hooks";
-import { Box, Container, HStack, Link } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  ContainerProps,
+  Flex,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
 import { Hooks } from "minimist-react-library";
-import { FC, HTMLAttributes } from "react";
-import { CgMenuMotion } from "react-icons/cg";
-import { PiHouse } from "react-icons/pi";
+import { FC } from "react";
+import { CgMenuMotion, CgProfile } from "react-icons/cg";
 import { GoHome } from "react-icons/go";
-import { CgProfile } from "react-icons/cg";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { PiHouse } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 
-interface NavbarProps extends HTMLAttributes<HTMLDivElement> {}
+interface NavbarProps extends ContainerProps {}
 
-export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
+export const Navbar: FC<NavbarProps> = (props) => {
   const [isShowBottomNavbar, toggleBottomNavbar] = Hooks.Data.useToggle(false);
 
   const isScrolling = Hooks.Window.useScrolling();
@@ -54,47 +58,48 @@ export const Navbar: FC<NavbarProps> = ({ className, children, ...props }) => {
   return (
     <Container
       id="navbar"
-      className={className}
-      position="fixed"
-      background={"#fff"}
+      variant="navbar"
       boxShadow={isScrolling ? "sm" : "none"}
-      maxW={"100vw"}
-      padding={0}
-      zIndex={1}
       {...customStyles}
       {...props}
     >
-      <HStack
+      <Flex
+        className="navbar__content"
         justifyContent={"space-between"}
-        maxW={"container.lg"}
-        padding={isMobile ? "16px 24px" : "16px 48px"}
         margin="auto"
+        maxW={"container.lg"}
+        padding="10px 32px"
       >
-        <S.NavItem>
-          <Link href="#home" aria-label="home">
-            <PiHouse size={20} />
-          </Link>
-        </S.NavItem>
+        <Center className="navbar__left" as="a" href="#home">
+          <PiHouse size={20} />
+        </Center>
+
+        <Spacer className="navbar__spacer" />
 
         {isMobile ? (
-          <Box onClick={toggleBottomNavbar} cursor="pointer">
+          <Center as="button" onClick={toggleBottomNavbar}>
             <CgMenuMotion size={20} />
-          </Box>
+          </Center>
         ) : (
-          <HStack spacing={8}>
+          <Flex className="navbar__right" gap={8}>
             {navItems.map((item) => (
-              <S.NavItem key={item.name}>
-                <Link href={item.href}>{item.name}</Link>
-              </S.NavItem>
+              <Text
+                key={item.name}
+                className="navbar__item"
+                as="a"
+                href={item.href}
+              >
+                {item.name}
+              </Text>
             ))}
-          </HStack>
+          </Flex>
         )}
-      </HStack>
+      </Flex>
 
       <BottomNavbar
-        transform={isShowBottomNavbar ? "translateY(0px)" : "translateY(200px)"}
         navItems={navItems}
         toggleModal={toggleBottomNavbar}
+        transform={isShowBottomNavbar ? "translateY(0px)" : "translateY(200px)"}
       />
     </Container>
   );

@@ -1,17 +1,13 @@
 import * as S from "./SkillsPage.styles";
 
-import { VStack, useStyleConfig } from "@chakra-ui/react";
+import { VStack, useStyleConfig, Container } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
 
 interface SkillsPageProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const SkillsPage: FC<SkillsPageProps> = ({
-  className,
-  children,
-  ...props
-}) => {
+export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
   return (
-    <S.Wrapper id="skills" className={className} {...props}>
+    <Container id="skills" variant="pageLayout" {...props}>
       <VStack justifyContent={"flex-start"} height={"100%"}>
         <S.PageTitle
           color={"default.titleDark"}
@@ -24,6 +20,6 @@ export const SkillsPage: FC<SkillsPageProps> = ({
           My Introduction
         </S.PageSubtitle>
       </VStack>
-    </S.Wrapper>
+    </Container>
   );
 };

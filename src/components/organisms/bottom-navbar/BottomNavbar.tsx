@@ -1,7 +1,13 @@
-import * as S from "./BottomNavbar.styles";
-
-import { FC, HTMLAttributes } from "react";
-import { Box, ContainerProps, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Container,
+  ContainerProps,
+  Flex,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { FC } from "react";
 import { IoClose } from "react-icons/io5";
 
 interface BottomNavbarProps extends ContainerProps {
@@ -10,23 +16,29 @@ interface BottomNavbarProps extends ContainerProps {
 }
 
 export const BottomNavbar: FC<BottomNavbarProps> = ({
-  className,
   children,
   navItems,
   toggleModal,
   ...props
 }) => {
   return (
-    <S.Wrapper className={className} padding="15px 0" {...props}>
-      <Stack
-        direction="row"
+    <Container
+      id="bottom-navbar"
+      variant="bottomModalLayout"
+      padding="15px 0"
+      {...props}
+    >
+      <Flex
+        className="bottom-navbar__content"
         flexWrap="wrap"
         justifyContent="space-around"
-        margin="auto"
         gap="15px 5px"
       >
         {navItems.map((item) => (
           <Stack
+            className="navbar__item"
+            as="a"
+            href={item.href}
             key={item.name}
             alignItems="center"
             justifyContent="flex-start"
@@ -34,25 +46,20 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
             width={"30%"}
           >
             {item.icon}
-            <Link href={item.href}>
-              <Text fontSize="xs">{item.name}</Text>
-            </Link>
+            <Text fontSize="xs">{item.name}</Text>
           </Stack>
         ))}
-        <Box width={"30%"}></Box>
-        <Box width={"30%"}></Box>
-        <Box width={"30%"}></Box>
-        <Box width={"30%"}></Box>
-
-        <Stack
-          alignItems="center"
-          cursor="pointer"
+        <Box width={"60%"}></Box>
+        <Box width={"60%"}></Box>
+        <Center
+          className="navbar__close-icon"
+          as="button"
           onClick={() => toggleModal && toggleModal()}
           width={"30%"}
         >
           <IoClose size={20} />
-        </Stack>
-      </Stack>
-    </S.Wrapper>
+        </Center>
+      </Flex>
+    </Container>
   );
 };

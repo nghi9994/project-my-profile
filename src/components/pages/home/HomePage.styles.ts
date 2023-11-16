@@ -1,8 +1,7 @@
-import { PageContainer } from "@/components";
-import { Image, Stack } from "@chakra-ui/react";
+import { Container, Image, Stack } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
-export const Wrapper = styled(PageContainer)``;
+export const Wrapper = styled(Container)``;
 
 export const ProfileImage = styled(Image)`
   animation: profile__animate 8s ease-in-out 1s infinite alternate;

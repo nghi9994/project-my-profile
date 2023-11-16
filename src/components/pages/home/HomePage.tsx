@@ -1,14 +1,12 @@
 import * as S from "./HomePage.styles";
 
 import { HAND_ICON_URL, PROFILE_URL } from "@/constants";
-import { useDevice } from "@/hooks";
 import {
   Button,
+  Container,
   Divider,
   Image,
-  Link,
   Stack,
-  StackDirection,
   Text,
 } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
@@ -17,41 +15,28 @@ import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
 
 interface HomePageProps extends HTMLAttributes<HTMLDivElement> {}
-type CustomStyleType = {
-  alignItems?: string;
-  direction: StackDirection;
-};
 
-export const HomePage: FC<HomePageProps> = ({
-  className,
-  children,
-  ...props
-}) => {
-  const { isMobile, isTablet } = useDevice();
-
-  const customStyles: CustomStyleType =
-    isMobile || isTablet
-      ? {
-          direction: "column-reverse",
-        }
-      : {
-          direction: "row",
-          alignItems: "center",
-        };
+export const HomePage: FC<HomePageProps> = ({ children, ...props }) => {
   return (
-    <S.Wrapper id="home" className={className} {...props}>
+    <Container id="home" variant="pageLayout" {...props}>
       <Stack
-        margin={"0 16px"}
+        className="home__content"
         height={"100%"}
         gap={6}
         position="relative"
-        {...customStyles}
+        alignItems="center"
+        flexDirection={{ base: "column-reverse", sm: "row" }}
       >
-        <Stack flex={1} alignItems={"flex-start"} gap={5}>
+        <Stack
+          className="home__left"
+          flex={1}
+          alignItems={"flex-start"}
+          gap={5}
+        >
           <Stack direction="row" width="100%" alignItems="center" gap={4}>
             <Text
               color="default.title"
-              fontSize={isMobile ? "4xl" : "6xl"}
+              fontSize={{ base: "4xl", sm: "5xl", md: "6xl" }}
               fontWeight="bold"
               whiteSpace="nowrap"
             >
@@ -61,13 +46,15 @@ export const HomePage: FC<HomePageProps> = ({
           </Stack>
 
           <Stack direction="row" width="100%" alignItems="center" gap={4}>
-            {!isMobile && (
-              <Divider borderBottomWidth={2} width={isMobile ? 0 : "50px"} />
-            )}
+            <Divider
+              borderBottomWidth={2}
+              display={{ base: "none", md: "block" }}
+              width={{ base: 0, sm: "50px" }}
+            />
             <Text
               color="default.titleDark"
-              fontSize={isMobile ? "xl" : "2xl"}
-              whiteSpace="nowrap"
+              fontSize={{ base: "xl", md: "2xl" }}
+              whiteSpace={{ base: "unset", md: "nowrap" }}
             >
               Frontend Software Engineer
             </Text>
@@ -77,23 +64,24 @@ export const HomePage: FC<HomePageProps> = ({
             passionate and dedicated to my work.
           </Text>
 
-          <Link href="#contact" marginTop={{ base: 5, sm: 10 }}>
-            <Button
-              rightIcon={<PiPaperPlaneTilt color="white" size={25} />}
-              transform={{ base: "scale(0.8)", sm: "none" }}
-              transformOrigin="left"
-            >
-              Say Hello
-            </Button>
-          </Link>
+          <Button
+            as="a"
+            href="#contact"
+            marginTop={{ base: 5, sm: 10 }}
+            rightIcon={<PiPaperPlaneTilt color="white" size={25} />}
+            transform={{ base: "scale(0.8)", sm: "none" }}
+            transformOrigin="left"
+          >
+            Say Hello
+          </Button>
         </Stack>
 
-        <Stack flex={1}>
+        <Stack className="home__right" flex={1}>
           <S.ProfileImage
             src={PROFILE_URL}
             alt="My Profile"
             borderRadius="full"
-            boxSize={{ base: 250, sm: 450, md: 350 }}
+            boxSize={{ base: 300, md: 400 }}
             boxShadow="dark-lg"
             margin="auto"
             objectFit="cover"
@@ -101,18 +89,17 @@ export const HomePage: FC<HomePageProps> = ({
         </Stack>
       </Stack>
 
-      {!isMobile && (
-        <S.MouseWrapper
-          flexDirection="row"
-          alignItems="center"
-          position="absolute"
-          left={30}
-          bottom={50}
-        >
-          <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
-          <FaArrowDown className="arrow-down" size={20} />
-        </S.MouseWrapper>
-      )}
-    </S.Wrapper>
+      <S.MouseWrapper
+        display={{ base: "none", sm: "flex" }}
+        flexDirection="row"
+        alignItems="center"
+        position="absolute"
+        left={30}
+        bottom={50}
+      >
+        <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
+        <FaArrowDown className="arrow-down" size={20} />
+      </S.MouseWrapper>
+    </Container>
   );
 };

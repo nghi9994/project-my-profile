@@ -5,6 +5,7 @@ import { useDevice } from "@/hooks";
 import {
   Box,
   Button,
+  Container,
   Image,
   Stack,
   StackDirection,
@@ -24,11 +25,7 @@ type CustomStyleType = {
   textAlign?: TypographyProps["textAlign"];
 };
 
-export const AboutPage: FC<AboutPageProps> = ({
-  className,
-  children,
-  ...props
-}) => {
+export const AboutPage: FC<AboutPageProps> = ({ children, ...props }) => {
   const { isMobile, isTablet } = useDevice();
 
   const customStyles: CustomStyleType =
@@ -47,9 +44,9 @@ export const AboutPage: FC<AboutPageProps> = ({
         };
 
   return (
-    <S.Wrapper
+    <Container
       id="about"
-      className={className}
+      variant="pageLayout"
       textAlign="center"
       minH={800}
       {...props}
@@ -171,6 +168,6 @@ export const AboutPage: FC<AboutPageProps> = ({
           </Stack>
         </Stack>
       </Stack>
-    </S.Wrapper>
+    </Container>
   );
 };

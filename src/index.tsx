@@ -7,6 +7,7 @@ import App from "./App";
 
 export const theme = extendTheme({
   breakpoints: DefaultTheme.breakpoints,
+  shadows: DefaultTheme.shadows,
   colors: DefaultTheme.colors,
   components: DefaultTheme.components,
   styles: {
