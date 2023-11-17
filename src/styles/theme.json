@@ -1,6 +1,6 @@
 {
   "breakpoints": {
-    "sm": "650px",
+    "sm": "700px",
     "md": "900px"
   },
   "colors": {
@@ -57,10 +57,11 @@
           "zIndex": "1"
         },
         "pageLayout": {
-          "height": "100vh",
+          "height": { "base": "unset", "sm": "100vh" },
+          "minH": { "base": "unset", "sm": "700px" },
+          "maxH": { "base": "unset", "md": "1000px" },
           "maxW": "100%",
-          "minH": "750px",
-          "maxH": "900px",
+          "paddingBottom": { "base": "50px", "sm": "70px" },
           "paddingTop": { "base": "20px", "sm": "70px" },
           "position": "relative"
         }

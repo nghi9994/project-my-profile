@@ -1,4 +1,4 @@
-import ProfileImage_2 from "@/assets/images/profile_2.jpeg";
+import ProfileImage_1 from "@/assets/images/profile_1.jpeg";
 import { HAND_ICON_URL } from "@/constants";
 import {
   Button,
@@ -110,11 +110,11 @@ export const HomePage: FC<HomePageProps> = (props) => {
             display={isImageLoaded ? "block" : "none"}
             onLoad={() => setIsImageLoaded(true)}
             animation={profileAnimation}
-            boxSize={{ base: 300, md: 400 }}
+            boxSize={{ base: 250, sm: 350, md: 400 }}
             boxShadow="dark-lg"
             objectFit="cover"
             margin="auto"
-            src={ProfileImage_2}
+            src={ProfileImage_1}
             fallbackSrc="https://via.placeholder.com/150"
             alt="My Profile"
             borderRadius="full"
@@ -129,7 +129,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
         flexDirection="row"
         alignItems="center"
         position="absolute"
-        left={30}
+        left={3}
         bottom={50}
         sx={{
           ".arrow-down": {

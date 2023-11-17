@@ -39,7 +39,7 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                 boxSize={{ base: "100%", md: "400px" }}
                 borderRadius={8}
                 objectFit="cover"
-                maxH={{ base: "350px", md: "100%" }}
+                maxH={{ base: "300px", md: "100%" }}
               />
             </Box>
 
